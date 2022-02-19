@@ -1,1 +1,29 @@
 .DS_Store
+/.bundle
+
+# Ignore the default SQLite database.
+friends/db/*.sqlite3
+friends/db/*.sqlite3-*
+
+# Ignore all logfiles and tempfiles.
+friends/log/*
+friends/tmp/*
+!friends/log/.keep
+!friends/tmp/.keep
+
+# Ignore pidfiles, but keep the directory.
+friends/tmp/pids/*
+!friends/tmp/pids/
+!friends/tmp/pids/.keep
+
+# Ignore uploaded files in development.
+friends/storage/*
+!/storage/.keep
+friends/tmp/storage/*
+!friends/tmp/storage/
+!friends/tmp/storage/.keep
+
+friends/public/assets
+
+# Ignore master key for decrypting credentials and more.
+friends/config/master.key
