@@ -1,23 +1,29 @@
-<h1>Friends List</h1>
+<% if user_signed_in %>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Email</th>
-      <th scope="col">Phone</th>
-      <th scope="col">Twitter</th>
-      <th scope="col">UserId</th>
-      <th scope="col"></th>
-    </tr>
-  </thead>
-  <tbody>
-      <% @friends.each do |friend| %>
-        <%= render friend %>
-      <% end %>
-  </tbody>
-</table>
+  <h1>Friends List</h1>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Phone</th>
+        <th scope="col">Twitter</th>
+        <th scope="col">UserId</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+        <% @friends.each do |friend| %>
+          <% if friend.user == current_user %> 
+          <%= render friend %>
+          <% end %>
+        <% end %>
+    </tbody>
+  </table>
 
 
-<%= link_to "New friend", new_friend_path , class:"btn btn-primary" %>
+  <%= link_to "New friend", new_friend_path , class:"btn btn-primary" %>
+<% else %>
+
+<% end %>
